@@ -1,11 +1,11 @@
 import React from 'react'
 
-const ContactRow = ({contacts,setContacts }) => {
+const ContactRow = ({contacts}) => {
   return (
     contacts &&
     contacts.map((contact) => {
       return (
-        <tr>
+        <tr key={contact.id}>
           <td className='p-4'>{contact.name}</td>
           <td className='p-4'>{contact.email}</td>
           <td className='p-4'>{contact.phone}</td>
