@@ -3,7 +3,7 @@ import ContactRow from "./ContactRow";
 import { useEffect, useState } from "react";
 
 
-const ContactList = () => {
+const ContactList = ({setSelectedContactId }) => {
 
   const [contacts, setContacts] = useState(null);
   
@@ -30,33 +30,37 @@ const ContactList = () => {
   },[])
 
   return (
-    <table className="table w-fit p-5 m-5 border-4 border-collapse border-blue-600">
-      <thead className="table-header-group">
-        <tr className="table-row">
-          <th
-            colSpan={3}
-            className = "table-cell text-3xl p-5 text-blue-600 text-shadow-blue-200 text-shadow-sm bg-amber-300 border-4"
-          >
-            Contact List
-          </th>
-        </tr>
-        <tr className="table-row bg-amber-500 border-3 border-collapse border-blue-600">
-          <th className = "table-cell  text-center text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm">
-            Name
-          </th>
-          <th
-            className = "table-cell text-center  text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm">
-            Email
-          </th>
-          <th className ="table-cell text-center  text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm">
-            Phone
-          </th>
-        </tr>
-      </thead>
-      <tbody className="table-row-group">
-          <ContactRow contacts={contacts} setContacts={setContacts} />
-      </tbody>
-    </table>
+    <div className="flex flex-col justify-center items-center mt-40 gap-2 p-6">
+      <table className="table w-fit gap-2 justify-center items-center p-5 m-5 border-4 border-collapse border-blue-600 shadow-lg shadow-blue-800">
+        <thead className="table-header-group">
+          <tr className="table-row bg-blue-300">
+            <th
+              colSpan={3}
+              className="table-cell border-4 text-3xl p-5 text-blue-600 text-shadow-blue-50 text-shadow-md tracking-widest"
+            >
+              Contact List
+            </th>
+          </tr>
+          <tr className="table-row border-3 bg-blue-200  border-collapse border-blue-600">
+            <th className="table-cell  text-center text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm tracking-widest">
+              Name
+            </th>
+            <th className="table-cell text-center  text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm tracking-widest">
+              Email
+            </th>
+            <th className="table-cell text-center  text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm tracking-widest">
+              Phone
+            </th>
+          </tr>
+        </thead>
+        <tbody className="table-row-group">
+          <ContactRow
+            contacts={contacts}
+            setSelectedContactId={setSelectedContactId}
+          />
+        </tbody>
+      </table>
+    </div>
   );
 };
 
