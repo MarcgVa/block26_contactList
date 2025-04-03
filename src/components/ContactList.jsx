@@ -1,10 +1,13 @@
 import ContactRow from "./ContactRow";
+
 import { useEffect, useState } from "react";
 
 
 const ContactList = () => {
 
   const [contacts, setContacts] = useState(null);
+  
+
   const getContacts = async () => {
     try {
       const response = await fetch(
@@ -27,31 +30,31 @@ const ContactList = () => {
   },[])
 
   return (
-    <table className="table-auto border-collapse border-spacing-0 border-amber-300">
-      <thead>
-        <tr>
+    <table className="table w-fit p-5 m-5 border-4 border-collapse border-blue-600">
+      <thead className="table-header-group">
+        <tr className="table-row">
           <th
             colSpan={3}
-            className="text-3xl text-blue-600 text-shadow-blue-200 text-shadow-sm"
+            className = "table-cell text-3xl p-5 text-blue-600 text-shadow-blue-200 text-shadow-sm bg-amber-300 border-4"
           >
             Contact List
           </th>
         </tr>
-        <tr>
-          <th className="text-2xl p-4 text-amber-400 text-shadow-amber-200 text-shadow-2xs">
+        <tr className="table-row bg-amber-500 border-3 border-collapse border-blue-600">
+          <th className = "table-cell  text-center text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm">
             Name
           </th>
           <th
-            className="text-2xl p-4 text-amber-400 text-shadow-amber-200 text-shadow-2xs">
+            className = "table-cell text-center  text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm">
             Email
           </th>
-          <th className="text-2xl p-4 text-amber-400 text-shadow-amber-200 text-shadow-2xs">
+          <th className ="table-cell text-center  text-2xl p-4 text-blue-900 text-shadow-blue-200 text-shadow-sm">
             Phone
           </th>
         </tr>
       </thead>
-      <tbody>
-        <ContactRow contacts={contacts} setContacts={setContacts} />
+      <tbody className="table-row-group">
+          <ContactRow contacts={contacts} setContacts={setContacts} />
       </tbody>
     </table>
   );
