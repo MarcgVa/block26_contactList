@@ -30,8 +30,6 @@ const ContactList = ({setSelectedContactId }) => {
     getContacts();
   }, [])
   
-  
-  setTimeout(() => {}, 1000000);
   return (
     <div className="flex flex-col justify-center items-center mt-40 gap-2 p-6">
       <table className="table w-fit gap-2 justify-center items-center p-5 m-5 border-4 border-collapse border-blue-600 shadow-lg shadow-blue-800">
